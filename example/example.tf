@@ -43,6 +43,7 @@ module "azure_subnet" {
   location               = var.location
   naming_convention_info = local.naming_convention_info
   tags                   = local.tags
+  create_nsg = var.create_nsg
   subnets = {
   001 = {
       name              = var.subnet_name
@@ -51,6 +52,8 @@ module "azure_subnet" {
       private_endpoint_network_policies_enabled = null
       route_table_id    = null
       delegation  = null
+      nsg_inbound = []
+      nsg_outbound = []
     }
   }
 }

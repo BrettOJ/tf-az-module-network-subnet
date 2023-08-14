@@ -20,3 +20,9 @@ variable "subnet_name" {
   
 }
   
+variable "create_nsg" {
+  description = "create network security group"
+  type        = bool
+  default     = true
+}
+  

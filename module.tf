@@ -23,3 +23,4 @@ resource "azurerm_subnet" "subnet_obj" {
     }
   }
 }
+

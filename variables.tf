@@ -62,4 +62,13 @@ variable "dependencies" {
   default     = null
 }
 
+variable "nsg_resource_group_name" {
+  description = "(Optional)The resource groups of NSG. Deafults to Vnet rg"
+  type        = string
+  default     = null
+}
 
+variable "create_nsg" {
+  type = bool
+  default = null
+}
