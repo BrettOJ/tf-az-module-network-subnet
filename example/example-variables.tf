@@ -1,9 +1,18 @@
 variable "location" {
+  description = "value of the location"
   
 }
 
 variable "resource_group_name" {
-  
+  description = "value of the resource group name"
+}
+
+variable "dns_servers" {
+  description = "value of the dns servers"
+}
+
+variable "address_space" {
+  description = "value of the address space"
 }
 
 variable "diag_object" {
@@ -16,9 +25,6 @@ variable "diag_object" {
   default = null
 }
 
-variable "subnet_name" {
-  
-}
   
 variable "create_nsg" {
   description = "create network security group"
