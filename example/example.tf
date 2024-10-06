@@ -1,17 +1,22 @@
 locals {
-  naming_convention_info = {
-    project_code = "project_code"
-    env          = "env"
-    zone         = "zone"
-    tier         = "tier"
-    name         = "name"
-  }
+
   tags = {
     environment = "dev"
     project     = "project"
     owner       = "owner"
   }
+  naming_convention_info = {
+    name         = "eg"
+    project_code = "boj"
+    env          = "dev"
+    zone         = "z1"
+    agency_code  = "brettoj"
+    tier         = "web"
+  }
+
 }
+
+
 module "resource_groups" {
   source = "git::https://github.com/BrettOJ/tf-az-module-resource-group?ref=main"
   resource_groups = {
@@ -42,7 +47,7 @@ module "azure_subnet" {
   virtual_network_name = module.azure_virtual_network.vnets_output.name
   location               = var.location
 
-  naming_convention_info = local.naming_convention_info
+  naming_convention_info = locals.naming_convention_info
   tags                   = local.tags
   create_nsg = var.create_nsg
   subnets = {
