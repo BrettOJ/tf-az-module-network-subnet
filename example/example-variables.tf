@@ -1,34 +1,62 @@
+
+variable "address_space" {
+ type = list(string)
+}
+
 variable "location" {
-  description = "value of the location"
-  
+  type = string
+  default = "southeastasia"
 }
 
 variable "resource_group_name" {
-  description = "value of the resource group name"
+  type = string
+  default = "vnet-rg"
+}
+
+variable "bgp_community" {
+  type = string
+  default = null
+}
+  
+variable "ddos_protection_plan" {
+  type = map(any)
+  default = {
+    id = ""
+    enable = false
+  }
+}
+
+variable "encryption" {
+  type = map(any)
+  default = {
+    enforcement = ""
+  }
 }
 
 variable "dns_servers" {
-  description = "value of the dns servers"
+  type = list(string)
+  default = [""]
 }
 
-variable "address_space" {
-  description = "value of the address space"
+variable "edge_zone" {
+  type = string
+  default = ""
 }
 
-variable "diag_object" {
-  description = "contains the logs and metrics for diagnostics"
-  type = object({
-    log_analytics_workspace_id = string
-    log                        = list(tuple([string, bool, bool, number]))
-    metric                     = list(tuple([string, bool, bool, number]))
-  })
-  default = null
+variable "flow_timeout_in_minutes" {
+  type = number
+  default = 4
 }
 
-  
+variable "tags" {
+  type = map(any)
+  default = {
+    environment = "dev"
+  }
+}
+
 variable "create_nsg" {
-  description = "create network security group"
-  type        = bool
-  default     = true
-}
+  type = bool
+  default = false
   
+}
