@@ -1,9 +1,8 @@
 locals {
   naming_convention_info = {
-    project_code = "project_code"
+    site = "site"
     env          = "env"
-    zone         = "zone"
-    tier         = "tier"
+    app         = "app"
     name         = "name"
   }
    tags = {
