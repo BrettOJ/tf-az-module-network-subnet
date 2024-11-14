@@ -10,7 +10,7 @@ locals {
 
 
 module "nsg" {
-  source                 = "git::https://github.com/BrettOJ/tf-az-module-network-nsg?ref=main"
+  source                 = "git::https://github.com/BrettOJ/tf-az-module-azure-network-nsg?ref=main"
   resource_group_name    = coalesce(var.nsg_resource_group_name, var.resource_group_name)
   location               = var.location
   nsg_info               = local.nsg_info
